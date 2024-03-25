@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b676o7eedlvp5"]
+[gd_scene load_steps=27 format=3 uid="uid://b676o7eedlvp5"]
 
 [ext_resource type="Texture2D" uid="uid://bll6srtqpqafj" path="res://art/sandsafe.png" id="1_6iby3"]
 [ext_resource type="Texture2D" uid="uid://k2bxakokob5" path="res://art/gravel.jpg" id="1_iefl0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://t2dmhjcpa4bi" path="res://art/evil_gravel.png" id="8_u7c8c"]
 [ext_resource type="Texture2D" uid="uid://c7qtnlk4f8uxd" path="res://art/Crate.png" id="9_smr1h"]
 [ext_resource type="Texture2D" uid="uid://bgufv036hssxw" path="res://art/background (1).png" id="12_w1hie"]
+[ext_resource type="Texture2D" uid="uid://c0f7m818tdm3q" path="res://art/ClosedDoor.png" id="13_om05p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_534he"]
 resource_name = "Gravel"
@@ -544,6 +545,9 @@ sources/8 = SubResource("TileSetAtlasSource_m6u0a")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46612"]
 size = Vector2(30, 900)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gdhc"]
+size = Vector2(64, 128)
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -575,15 +579,17 @@ position = Vector2(-1653, -1018)
 shape = SubResource("RectangleShape2D_46612")
 one_way_collision_margin = 0.0
 
-[node name="Invisible Wall2" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible Wall2"]
-position = Vector2(2419, -437)
-shape = SubResource("RectangleShape2D_46612")
-one_way_collision_margin = 0.0
-
 [node name="Background(1)" type="Sprite2D" parent="."]
 show_behind_parent = true
 position = Vector2(469, -1071)
 scale = Vector2(5.53828, 5.63281)
 texture = ExtResource("12_w1hie")
+
+[node name="ClosedDoor" type="Sprite2D" parent="."]
+position = Vector2(2442, -56)
+texture = ExtResource("13_om05p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ClosedDoor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosedDoor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_1gdhc")
