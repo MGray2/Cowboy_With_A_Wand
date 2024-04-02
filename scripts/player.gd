@@ -15,14 +15,19 @@ var animation_lock = false
 
 func _physics_process(delta):
 	update_health()
+	velocity.y += gravity * delta
+	if health == 0 or health < 0:
+		if is_on_floor():
+			$AnimatedSprite2D.play("Death")
+			await get_tree().create_timer(3).timeout
+			get_tree().change_scene_to_file("res://scenes/Gameover.tscn")
 	update_mana_bar()
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if invincible == false:
-		# Add the gravity.
 		if not is_on_floor():
 			animation_lock = true
 			$AnimatedSprite2D.play("jump")
-			velocity.y += gravity * delta
+			
 		else:
 			animation_lock = false
 			
@@ -41,7 +46,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("Idle")
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:  
-		print(invincible)
+		
 		if not is_on_floor():
 			velocity.y += gravity * delta
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -101,16 +106,13 @@ func take_damage():
 		$AnimatedSprite2D.play("Invincible")
 		$invincible.start()
 		invincible=true
-func death():
-	if health < 0 or health == 0:
-		$AudioStreamPlayer2D.play()
+
 func _on_area_2d_area_entered(area):
 	
 	if  area.name == "tumbletweed" and  invincible!=true:
 		take_damage()
 		
 			
-	death()
 func _on_invincible_timeout():
 	invincible = false
 func heal(): 

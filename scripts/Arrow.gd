@@ -1,5 +1,5 @@
 extends Area2D
-var player = preload("res://scenes/character_body_2d.tscn")
+var player = preload("res://scenes/player.tscn")
 var arrow_speed = 600
 func _ready():
 	set_as_top_level(true)

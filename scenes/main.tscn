@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bll6srtqpqafj" path="res://art/sandsafe.png" id="1_6iby3"]
 [ext_resource type="Texture2D" uid="uid://k2bxakokob5" path="res://art/gravel.jpg" id="1_iefl0"]
 [ext_resource type="Texture2D" uid="uid://bqrxmsms063yr" path="res://art/graveltop.jpg" id="3_byn2l"]
-[ext_resource type="PackedScene" uid="uid://c4uhsgrh7y4xh" path="res://scenes/player.tscn" id="3_gi5wh"]
+[ext_resource type="PackedScene" uid="uid://dkfo016f41khl" path="res://scenes/player.tscn" id="3_gi5wh"]
 [ext_resource type="Texture2D" uid="uid://bo8i0ecry342c" path="res://art/sandbricks1.png" id="4_2siwg"]
 [ext_resource type="PackedScene" uid="uid://cpllcsino2w52" path="res://scenes/bad_guy2.tscn" id="4_rrpkd"]
 [ext_resource type="Texture2D" uid="uid://cppq38wuux6ci" path="res://art/Hay.png" id="5_xi077"]
@@ -654,9 +654,6 @@ layer_0/tile_data = PackedInt32Array(262212, 0, 0, 327748, 196609, 3, 393284, 0,
 position = Vector2(1081, -130)
 scale = Vector2(1.88, 1.88)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_gi5wh")]
-position = Vector2(-1396, -643)
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(464, -376)
 
@@ -735,3 +732,6 @@ texture = ExtResource("13_om05p")
 libraries = {
 "": SubResource("AnimationLibrary_ywqup")
 }
+
+[node name="player" parent="." instance=ExtResource("3_gi5wh")]
+position = Vector2(-1312, -648)
