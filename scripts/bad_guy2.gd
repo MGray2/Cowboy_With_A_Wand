@@ -9,6 +9,7 @@ var attack_player = false
 var player = null
 var attack_pattern = false
 var boss_attack = RandomNumberGenerator.new()
+signal boss_died
 func _ready():
 	update_healthbar()
 func _physics_process(delta):
@@ -50,6 +51,7 @@ func death():
 	if health < 0 or health == 0:
 		health_visi = false
 		$Boss_music.stop()
+		emit_signal("boss_died")
 		$victory.play()
 		$AnimatedSprite2D.play("death")
 		$Bosshealth.queue_free()
@@ -60,8 +62,9 @@ func death():
 		gravity = 0
 		await get_tree().create_timer(10).timeout	
 		$victory.stop()
-		 
+		
 		$"Bossrange".queue_free()
+		
 		
 				
 func _on_tumbletweed_area_entered(area):
