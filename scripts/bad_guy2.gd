@@ -63,7 +63,7 @@ func death():
 		 
 		$"Bossrange".queue_free()
 		
-				
+
 func _on_tumbletweed_area_entered(area):
 	if  area.name == "Arrow":
 		take_arrow_damage()
@@ -72,13 +72,6 @@ func _on_tumbletweed_area_entered(area):
 	
 	update_healthbar()
 	death()
-
-
-
-
-
-	
-
 
 func _on_boss_range_area_entered(area):
 	if area.name == "player":
@@ -101,11 +94,9 @@ func _on_bossrange_body_entered(body):
 		attack_player = true
 	
 
-
 func _on_bossrange_body_exited(body):
 	player = null
 	attack_player = false
-
 
 func _on_bossrange_area_entered(area):
 	if area.name == "player":

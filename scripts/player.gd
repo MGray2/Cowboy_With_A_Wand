@@ -12,6 +12,7 @@ var bad_guy = preload("res://scenes/bad_guy2.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var mana = 100
 var animation_lock = false
+var attack = false
 
 func _physics_process(delta):
 	update_health()
@@ -19,7 +20,7 @@ func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if invincible == false:
 		# Add the gravity.
-		if not is_on_floor():
+		if not is_on_floor() and attack == false:
 			animation_lock = true
 			$AnimatedSprite2D.play("jump")
 			velocity.y += gravity * delta
@@ -34,10 +35,10 @@ func _physics_process(delta):
 			
 			
 		if animation_lock == false:
-			if direction:
+			if direction and attack == false:
 				$AnimatedSprite2D.play("Run")
 				velocity.x = direction.x * SPEED
-			else:
+			elif attack == false:
 				$AnimatedSprite2D.play("Idle")
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:  
@@ -63,6 +64,10 @@ func _physics_process(delta):
 	$Marker2D.look_at(mouse_pos)
 	
 	if Input.is_action_just_pressed("attack") and wand and wand_cool_down:
+		attack = true
+		$AnimatedSprite2D.play("attackWand")
+		await get_tree().create_timer(0.4).timeout
+		attack = false
 		wand_cool_down = false
 		var arrow_instance = arrow.instantiate()
 		arrow_instance.rotation = $Marker2D.rotation
@@ -70,7 +75,14 @@ func _physics_process(delta):
 		add_child(arrow_instance)
 		await get_tree().create_timer(0.4).timeout
 		wand_cool_down = true
+		
+	
+		
 	if Input.is_action_just_pressed("super attack") and wand and wand_cool_down and  mana >= 25 :
+		attack = true
+		$AnimatedSprite2D.play("attackWand")
+		await get_tree().create_timer(0.4).timeout
+		attack = false
 		wand_cool_down=false
 		mana -= 25
 		var super_arrow_instance = super_arrow.instantiate()
