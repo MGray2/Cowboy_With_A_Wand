@@ -9,27 +9,19 @@ var attack_player = false
 var player = null
 var attack_pattern = false
 var boss_attack = RandomNumberGenerator.new()
+signal boss_died
+var collision_attack = preload("res://collision_shape_2d.tscn")
 func _ready():
 	update_healthbar()
 func _physics_process(delta):
 	if attack_player == true:
-		if attack_pattern == false:
-			var attack = boss_attack.randi_range(1, 100)
-			attack_pattern = true
-			position.x =416
-			position.y = -378
-			await get_tree().create_timer(5).timeout
-			
-			attack_pattern = false
-			
-		
-			print("this is it: " + str(attack))
-		
+		await get_tree().create_timer(4)
+		attack()
 		position += (player.position - position)/speed
+	
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
 	move_and_slide()
 	
 func update_healthbar():
@@ -45,11 +37,26 @@ func take_super_arrow_damage():
 	if health> 0 :
 		health -= 50
 	
-
+func attack():
+	var attacks = collision_attack.instantiate()
+	var attacking = boss_attack.randi_range(1,2)
+	print(attacking)
+	if attacking == 2 and health > 0 :
+		$AnimatedSprite2D.play("attacks")
+		$tumbletweed.add_child(attacks)
+		await get_tree().create_timer(4).timeout
+		$tumbletweed.remove_child(attacks)
+		
+	else:		
+		pass
+	
+	
+	
 func death():
 	if health < 0 or health == 0:
 		health_visi = false
 		$Boss_music.stop()
+		emit_signal("boss_died")
 		$victory.play()
 		$AnimatedSprite2D.play("death")
 		$Bosshealth.queue_free()
@@ -60,10 +67,11 @@ func death():
 		gravity = 0
 		await get_tree().create_timer(10).timeout	
 		$victory.stop()
-		 
+		
 		$"Bossrange".queue_free()
 		
-
+		
+				
 func _on_tumbletweed_area_entered(area):
 	if  area.name == "Arrow":
 		take_arrow_damage()
@@ -88,15 +96,19 @@ func _on_boss_range_area_exited(area):
 
 
 func _on_bossrange_body_entered(body):
-	print(body.name)
-	if body.name == "CharacterBody2D":
+	if body.name == "player":
 		player = body
 		attack_player = true
 	
 
+
 func _on_bossrange_body_exited(body):
 	player = null
 	attack_player = false
+
+
+
+
 
 func _on_bossrange_area_entered(area):
 	if area.name == "player":
