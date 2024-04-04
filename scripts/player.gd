@@ -149,5 +149,5 @@ func health_for_mana():
 		health -=25
 		mana += 25
 
-func melee_attack():
-	print("smack")
+#func melee_attack():
+	#print("smack")
