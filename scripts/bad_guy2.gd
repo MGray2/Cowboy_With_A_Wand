@@ -2,7 +2,7 @@ extends CharacterBody2D
 var speed = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health_visi = true
-var health = 50
+var health = 2000
 var invi = false
 var JUMP = 500
 var attack_player = false
@@ -14,12 +14,9 @@ var collision_attack = preload("res://collision_shape_2d.tscn")
 func _ready():
 	update_healthbar()
 func _physics_process(delta):
-	if attack_player == true:
-		$Attacktimer.start()
+	if attack_player:
 		
-		
-	
-		
+		position += (player.position - position)/speed
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	move_and_slide()
@@ -46,9 +43,9 @@ func attack():
 		$tumbletweed.add_child(attacks)
 		await get_tree().create_timer(4).timeout
 		$tumbletweed.remove_child(attacks)
+		$AnimatedSprite2D.play("Idle")
 		
-	else:		
-		position += (player.position - position)/speed
+		
 	
 	
 	
@@ -94,6 +91,7 @@ func _on_bossrange_body_entered(body):
 	if body.name == "CharacterBody2D":
 		player = body
 		attack_player = true
+		$Attacktimer.start()
 		print(player)
 
 
