@@ -255,8 +255,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_c57ef"]
 radius = 483.084
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_at7ay"]
-radius = 46.0109
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsf72"]
+size = Vector2(78.5, 0)
 
 [node name="bad_guy" type="CharacterBody2D"]
 script = ExtResource("1_1o8cr")
@@ -271,7 +271,7 @@ offset_left = -112.0
 offset_top = -65.0
 offset_right = 112.0
 offset_bottom = -38.0
-max_value = 500.0
+max_value = 2000.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
@@ -281,7 +281,7 @@ wait_time = 12.894
 position = Vector2(1, 3)
 scale = Vector2(1.34375, 1.19531)
 sprite_frames = SubResource("SpriteFrames_yphbm")
-animation = &"attacks"
+animation = &"Idle"
 
 [node name="victory" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mnp8e")
@@ -298,9 +298,8 @@ position = Vector2(4, 2)
 shape = SubResource("CircleShape2D_c57ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 28)
-shape = SubResource("CircleShape2D_at7ay")
-one_way_collision = true
+position = Vector2(-0.25, 43)
+shape = SubResource("RectangleShape2D_vsf72")
 debug_color = Color(0.917647, 0, 0.701961, 0.419608)
 
 [node name="Attacktimer" type="Timer" parent="."]
