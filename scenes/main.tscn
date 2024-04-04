@@ -1,9 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://b676o7eedlvp5"]
 
-[ext_resource type="Texture2D" uid="uid://bll6srtqpqafj" path="res://art/sandsafe.png" id="1_6iby3"]
+[ext_resource type="Texture2D" uid="uid://brvka6ulipstd" path="res://art/sandsafe.jpg" id="1_6iby3"]
 [ext_resource type="Texture2D" uid="uid://k2bxakokob5" path="res://art/gravel.jpg" id="1_iefl0"]
 [ext_resource type="Texture2D" uid="uid://bqrxmsms063yr" path="res://art/graveltop.jpg" id="3_byn2l"]
-[ext_resource type="PackedScene" uid="uid://c4uhsgrh7y4xh" path="res://scenes/player.tscn" id="3_gi5wh"]
 [ext_resource type="Texture2D" uid="uid://bo8i0ecry342c" path="res://art/sandbricks1.png" id="4_2siwg"]
 [ext_resource type="PackedScene" uid="uid://cpllcsino2w52" path="res://scenes/bad_guy2.tscn" id="4_rrpkd"]
 [ext_resource type="Texture2D" uid="uid://cppq38wuux6ci" path="res://art/Hay.png" id="5_xi077"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cunpvh48535ru" path="res://art/Cactus3.png" id="17_ejvl3"]
 [ext_resource type="Texture2D" uid="uid://0oxgau215vxv" path="res://art/Cactus2.png" id="18_iw16e"]
 [ext_resource type="Script" path="res://scenes/EndDoor.gd" id="18_uryw3"]
+[ext_resource type="PackedScene" uid="uid://bwwfn7m5ql0ut" path="res://scenes/player.tscn" id="19_h6soc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_534he"]
 resource_name = "Gravel"
@@ -735,7 +735,7 @@ libraries = {
 "": SubResource("AnimationLibrary_ywqup")
 }
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_gi5wh")]
-position = Vector2(-928, -642)
+[node name="CharacterBody2D" parent="." instance=ExtResource("19_h6soc")]
+position = Vector2(-1172, -631)
 
 [connection signal="boss_died" from="bad_guy" to="EndDoor" method="_on_bad_guy_boss_died"]

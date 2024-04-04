@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bll6srtqpqafj"
-path="res://.godot/imported/sandsafe.png-7398d3323b850b1da4d642ec41e2a3db.ctex"
+uid="uid://brvka6ulipstd"
+path="res://.godot/imported/sandsafe.jpg-7c6d4579a0291d326d6e90de0a4996a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sandsafe.png"
-dest_files=["res://.godot/imported/sandsafe.png-7398d3323b850b1da4d642ec41e2a3db.ctex"]
+source_file="res://art/sandsafe.jpg"
+dest_files=["res://.godot/imported/sandsafe.jpg-7c6d4579a0291d326d6e90de0a4996a8.ctex"]
 
 [params]
 

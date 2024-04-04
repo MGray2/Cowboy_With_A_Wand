@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health= 100
+var health= 10
 const SPEED = 300
 var invincible = false
 const JUMP_VELOCITY = -500
@@ -28,7 +28,7 @@ func _physics_process(delta):
 		# Add the gravity.
 		if not is_on_floor() and attack == false:
 			animation_lock = true
-			$AnimatedSprite2D.play("jump")
+			$AnimatedSprite2D.play("Jump")
 			
 		else:
 			animation_lock = false
@@ -109,7 +109,8 @@ func _physics_process(delta):
 		
 func update_health():
 	var health_bar = $Health
-	health_bar.value = health	
+	health_bar.value = health
+	
 func update_mana_bar():
 	var mana_bar = $Mana
 	mana_bar.value = mana

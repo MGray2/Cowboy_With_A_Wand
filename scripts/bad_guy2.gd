@@ -15,9 +15,9 @@ func _ready():
 	update_healthbar()
 func _physics_process(delta):
 	if attack_player == true:
-		await get_tree().create_timer(4)
-		attack()
-		position += (player.position - position)/speed
+		$Attacktimer.start()
+		
+		
 	
 		
 	if not is_on_floor():
@@ -48,7 +48,7 @@ func attack():
 		$tumbletweed.remove_child(attacks)
 		
 	else:		
-		pass
+		position += (player.position - position)/speed
 	
 	
 	
@@ -80,38 +80,36 @@ func _on_tumbletweed_area_entered(area):
 	
 	update_healthbar()
 	death()
+#
+#func _on_boss_range_area_entered(area):
+	#print("Area: ",area.name)
+	#if area.name == "Area2D":
+		#$Boss_music.play()
+	#else:
+		#pass
 
-func _on_boss_range_area_entered(area):
-	if area.name == "player":
-		$Boss_music.play()
-	else:
-		pass
-
-
-func _on_boss_range_area_exited(area):
-	if area.name == "player":
-		$Boss_music.stop()
-	else:
-		pass
 
 
 func _on_bossrange_body_entered(body):
-	if body.name == "player":
+	if body.name == "CharacterBody2D":
 		player = body
 		attack_player = true
-	
-
-
-func _on_bossrange_body_exited(body):
-	player = null
-	attack_player = false
+		print(player)
 
 
 
 
 
-func _on_bossrange_area_entered(area):
-	if area.name == "player":
-		$Boss_music.play()
-	else:
-		pass
+
+#
+#func _on_bossrange_area_entered(area):
+	#if area.name == "Area2D":
+		#$Boss_music.play()
+	#else:
+		#pass
+
+
+func _on_attacktimer_timeout():
+	print("Hey im going to Attack")
+	attack()
+	$Attacktimer.start()
