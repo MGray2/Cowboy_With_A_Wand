@@ -13,11 +13,11 @@ func _process(delta):
 # This function is called when another body enters the collision area
 func _on_Area2D_body_entered(body):
 	# Check if the body entering the area is the player
-	#if body.name == "Player":
-		#end_level()
-		pass
+	if body.name == "CharacterBody2D":
+		end_level()
+		
 
 # Function to end the level
 func end_level():
-	#get_tree().change_scene("res://path_to_next_level.tscn")
-	pass
+	get_tree().change_scene("res://scenes/Victory.tscn")
+	

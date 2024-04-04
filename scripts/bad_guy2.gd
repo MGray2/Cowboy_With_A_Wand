@@ -2,7 +2,7 @@ extends CharacterBody2D
 var speed = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health_visi = true
-var health = 2000
+var health = 2
 var invi = false
 var JUMP = 500
 var attack_player = false
@@ -42,7 +42,7 @@ func attack():
 		$AnimatedSprite2D.play("attacks")
 		$tumbletweed.add_child(attacks)
 		await get_tree().create_timer(4).timeout
-		$tumbletweed.remove_child(attacks)
+		$tumbltweed.remove_child(attacks)
 		$AnimatedSprite2D.play("Idle")
 		
 		
