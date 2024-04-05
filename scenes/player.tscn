@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bwwfn7m5ql0ut"]
+[gd_scene load_steps=66 format=3 uid="uid://bwwfn7m5ql0ut"]
 
 [ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://art/cowboizardidle-Sheet.png" id="1_32aqc"]
 [ext_resource type="Texture2D" uid="uid://do5yumocy4eyk" path="res://art/death-Sheet-export (1).png" id="2_42k2m"]
@@ -327,6 +327,10 @@ region = Rect2(372, 0, 124, 124)
 atlas = ExtResource("3_qns0h")
 region = Rect2(496, 0, 124, 124)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpcb3"]
+atlas = ExtResource("3_qns0h")
+region = Rect2(620, 0, 124, 124)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h65tp"]
 atlas = ExtResource("3_qns0h")
 region = Rect2(744, 0, 124, 124)
@@ -517,7 +521,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.11,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7kqlo")
 }, {
 "duration": 1.0,
@@ -529,15 +533,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1feyl")
 }, {
-"duration": 11.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wyo4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpcb3")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h65tp")
 }],
 "loop": true,
 "name": &"Jump",
-"speed": 11.01
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -554,7 +561,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 6.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -599,8 +606,7 @@ script = SubResource("GDScript_rqjt0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3th3l")
-animation = &"Jump"
-frame_progress = 0.0643665
+animation = &"Invincible"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_pxnxi")
@@ -618,20 +624,21 @@ wait_time = 5.0
 [node name="Health" type="ProgressBar" parent="."]
 modulate = Color(0.905882, 0, 0, 1)
 self_modulate = Color(0.905882, 0, 0, 1)
-offset_left = -547.0
-offset_top = -308.0
-offset_right = -200.0
-offset_bottom = -281.0
+offset_left = -451.0
+offset_top = -192.0
+offset_right = -104.0
+offset_bottom = -165.0
 show_percentage = false
 
 [node name="Mana" type="ProgressBar" parent="."]
-offset_left = -543.0
-offset_top = -267.0
-offset_right = -336.0
-offset_bottom = -240.0
+offset_left = -447.0
+offset_top = -151.0
+offset_right = -240.0
+offset_bottom = -124.0
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="invincible" type="Timer" parent="."]
 

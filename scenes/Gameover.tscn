@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://mle52p475doo"]
+[gd_scene load_steps=3 format=3 uid="uid://mle52p475doo"]
+
+[ext_resource type="Script" path="res://scenes/Gameover.gd" id="1_y4xpw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8d30u"]
 font_size = 50
+font_color = Color(0, 0, 1, 1)
 
 [node name="Gameover" type="Control"]
 layout_mode = 3
@@ -10,25 +13,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y4xpw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 1153.0
-offset_bottom = 661.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -867.0
+offset_top = -353.0
+offset_right = 998.0
+offset_bottom = 613.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.992157, 0, 0.239216, 1)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 0.886275, 1, 1)
-self_modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 0.729412, 1, 1)
 layout_mode = 0
-offset_left = 259.0
-offset_top = 164.0
-offset_right = 719.0
-offset_bottom = 372.0
+offset_left = 326.0
+offset_top = 195.0
+offset_right = 786.0
+offset_bottom = 403.0
 scale = Vector2(1.02265, 1)
 text = "Game Over"
 label_settings = SubResource("LabelSettings_8d30u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0, 1, 1, 1)
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 87.0
+offset_top = 426.0
+offset_right = 527.0
+offset_bottom = 516.0
+text = "Re -Try"
+
+[node name="Button3" type="Button" parent="."]
+modulate = Color(0, 1, 1, 1)
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 592.0
+offset_top = 426.0
+offset_right = 1032.0
+offset_bottom = 516.0
+text = "Quit
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 313)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

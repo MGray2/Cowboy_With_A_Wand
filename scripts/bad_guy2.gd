@@ -42,7 +42,7 @@ func attack():
 		$AnimatedSprite2D.play("attacks")
 		$tumbletweed.add_child(attacks)
 		await get_tree().create_timer(4).timeout
-		$tumbletweed.remove_child(attacks)
+		$tumbltweed.remove_child(attacks)
 		$AnimatedSprite2D.play("Idle")
 		
 		
