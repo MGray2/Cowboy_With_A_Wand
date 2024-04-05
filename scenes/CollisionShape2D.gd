@@ -12,6 +12,7 @@ func _process(delta):
 
 # This function is called when another body enters the collision area
 func _on_Area2D_body_entered(body):
+	print(body)
 	# Check if the body entering the area is the player
 	if body.name == "CharacterBody2D":
 		end_level()

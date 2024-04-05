@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2w0o2oniiof2"]
+[gd_scene load_steps=3 format=3 uid="uid://b2w0o2oniiof2"]
+
+[ext_resource type="Script" path="res://scenes/Victory.gd" id="1_8byc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8d30u"]
 font_size = 50
@@ -10,24 +12,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8byc1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 1153.0
-offset_bottom = 661.0
-color = Color(0, 0, 1, 1)
+offset_left = -900.0
+offset_top = -488.0
+offset_right = 2151.0
+offset_bottom = 1217.0
+color = Color(0, 0, 0.431373, 1)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 329.0
-offset_top = 213.0
-offset_right = 789.0
-offset_bottom = 421.0
+offset_left = 309.0
+offset_top = 145.0
+offset_right = 769.0
+offset_bottom = 353.0
 scale = Vector2(1.02265, 1)
 text = "Victory"
 label_settings = SubResource("LabelSettings_8d30u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 153.0
+offset_top = 423.0
+offset_right = 441.0
+offset_bottom = 491.0
+text = "Re-Play"
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 642.0
+offset_top = 426.0
+offset_right = 930.0
+offset_bottom = 494.0
+text = "Quit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 337)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
