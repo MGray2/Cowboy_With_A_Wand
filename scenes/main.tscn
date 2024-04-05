@@ -753,6 +753,7 @@ shape = SubResource("RectangleShape2D_rs73e")
 script = ExtResource("21_s1o1d")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("21_8yrup")]
+position = Vector2(-1358, -633)
 
 [connection signal="boss_died" from="bad_guy" to="EndDoor" method="_on_bad_guy_boss_died"]
 [connection signal="area_entered" from="ExitLevel/Area2D" to="bad_guy" method="_on_area_2d_area_entered"]
