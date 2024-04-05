@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cunpvh48535ru" path="res://art/Cactus3.png" id="17_ejvl3"]
 [ext_resource type="Texture2D" uid="uid://0oxgau215vxv" path="res://art/Cactus2.png" id="18_iw16e"]
 [ext_resource type="Script" path="res://scenes/EndDoor.gd" id="18_uryw3"]
-[ext_resource type="PackedScene" uid="uid://bwwfn7m5ql0ut" path="res://scenes/player.tscn" id="19_h6soc"]
 [ext_resource type="Texture2D" uid="uid://c6cycc3ofb34d" path="res://art/ExitLevel.png" id="20_g51cc"]
+[ext_resource type="PackedScene" uid="uid://bwwfn7m5ql0ut" path="res://scenes/player.tscn" id="21_8yrup"]
 [ext_resource type="Script" path="res://scenes/endgame.gd" id="21_s1o1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_534he"]
@@ -740,9 +740,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ywqup")
 }
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("19_h6soc")]
-position = Vector2(-1172, -631)
-
 [node name="ExitLevel" type="Sprite2D" parent="."]
 position = Vector2(3609, -43)
 scale = Vector2(1.60938, 1.57812)
@@ -754,6 +751,8 @@ texture = ExtResource("20_g51cc")
 position = Vector2(87.4417, -128.317)
 shape = SubResource("RectangleShape2D_rs73e")
 script = ExtResource("21_s1o1d")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("21_8yrup")]
 
 [connection signal="boss_died" from="bad_guy" to="EndDoor" method="_on_bad_guy_boss_died"]
 [connection signal="area_entered" from="ExitLevel/Area2D" to="bad_guy" method="_on_area_2d_area_entered"]
