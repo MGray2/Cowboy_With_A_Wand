@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2w0o2oniiof2"]
+[gd_scene load_steps=4 format=3 uid="uid://b2w0o2oniiof2"]
 
 [ext_resource type="Script" path="res://scenes/Victory.gd" id="1_8byc1"]
+[ext_resource type="Texture2D" uid="uid://big1vr3jbu1fc" path="res://art/pixil-frame-0 (4).png" id="2_cjqgb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8d30u"]
 font_size = 50
+font_color = Color(0, 1, 0, 1)
 
 [node name="Gameover" type="Control"]
 layout_mode = 3
@@ -14,21 +16,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8byc1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -900.0
-offset_top = -488.0
-offset_right = 2151.0
-offset_bottom = 1217.0
-color = Color(0, 0, 0.431373, 1)
+[node name="Pixil-frame-0(4)" type="Sprite2D" parent="."]
+position = Vector2(590, 244)
+scale = Vector2(5.45312, 3.43375)
+texture = ExtResource("2_cjqgb")
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 309.0
-offset_top = 145.0
-offset_right = 769.0
-offset_bottom = 353.0
+offset_left = 346.0
+offset_top = 43.0
+offset_right = 806.0
+offset_bottom = 251.0
 scale = Vector2(1.02265, 1)
 text = "Victory"
 label_settings = SubResource("LabelSettings_8d30u")

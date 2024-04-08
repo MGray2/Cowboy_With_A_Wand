@@ -11,6 +11,8 @@ var attack_pattern = false
 var boss_attack = RandomNumberGenerator.new()
 signal boss_died
 var collision_attack = preload("res://collision_shape_2d.tscn")
+var attacks = collision_attack.instantiate()
+
 func _ready():
 	update_healthbar()
 func _physics_process(delta):
@@ -35,7 +37,6 @@ func take_super_arrow_damage():
 		health -= 50
 	
 func attack():
-	var attacks = collision_attack.instantiate()
 	var attacking = boss_attack.randi_range(1,2)
 	print(attacking)
 	if attacking == 2 and health > 0 :

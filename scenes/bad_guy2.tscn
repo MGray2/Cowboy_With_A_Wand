@@ -307,8 +307,8 @@ wait_time = 4.0
 
 [connection signal="area_entered" from="tumbletweed" to="." method="_on_tumbletweed_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Bossrange" to="." method="_on_boss_range_area_entered"]
 [connection signal="area_entered" from="Bossrange" to="." method="_on_bossrange_area_entered"]
+[connection signal="area_entered" from="Bossrange" to="." method="_on_boss_range_area_entered"]
 [connection signal="area_exited" from="Bossrange" to="." method="_on_boss_range_area_exited"]
 [connection signal="body_entered" from="Bossrange" to="." method="_on_bossrange_body_entered"]
 [connection signal="body_exited" from="Bossrange" to="." method="_on_bossrange_body_exited"]

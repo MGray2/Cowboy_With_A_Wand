@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://0oxgau215vxv" path="res://art/Cactus2.png" id="18_iw16e"]
 [ext_resource type="Script" path="res://scenes/EndDoor.gd" id="18_uryw3"]
 [ext_resource type="Texture2D" uid="uid://c6cycc3ofb34d" path="res://art/ExitLevel.png" id="20_g51cc"]
-[ext_resource type="PackedScene" uid="uid://bwwfn7m5ql0ut" path="res://scenes/player.tscn" id="21_8yrup"]
+[ext_resource type="PackedScene" uid="uid://bwwfn7m5ql0ut" path="res://scenes/player.tscn" id="21_ppocg"]
 [ext_resource type="Script" path="res://scenes/endgame.gd" id="21_s1o1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_534he"]
@@ -677,7 +677,7 @@ one_way_collision_margin = 0.0
 
 [node name="Background(1)" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(938.125, -1178)
+position = Vector2(489, -1259)
 scale = Vector2(6.3002, 6.26797)
 texture = ExtResource("12_w1hie")
 
@@ -752,8 +752,8 @@ position = Vector2(87.4417, -128.317)
 shape = SubResource("RectangleShape2D_rs73e")
 script = ExtResource("21_s1o1d")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("21_8yrup")]
-position = Vector2(-1358, -633)
+[node name="CharacterBody2D" parent="." instance=ExtResource("21_ppocg")]
+position = Vector2(-1122, -634)
 
 [connection signal="boss_died" from="bad_guy" to="EndDoor" method="_on_bad_guy_boss_died"]
 [connection signal="area_entered" from="ExitLevel/Area2D" to="bad_guy" method="_on_area_2d_area_entered"]
